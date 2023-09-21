@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Splash Screen</title>
+    <!-- Add any CSS styles for your splash screen here -->
+    <style>
+        /* Style for the splash screen */
+        body {
+            background-color: white;
+            margin: 0;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .splash-text {
+            font-size: 24px;
+            opacity: 0; /* Start with opacity set to 0 for the fade-in effect */
+            transition: opacity 1s ease-in-out; /* CSS transition for the fade effect */
+        }
+
+        /* Apply the animation class when the page loads */
+        .animate-fade {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="splash-text animate-fade">
+        <!-- Splash screen content -->
+        <img src="./img/logo.png" alt="" srcset="">
+        
+    </div>
+
+    <script>
+        // Add a timeout to remove the animation class and redirect to your main page
+        setTimeout(function () {
+            const splashText = document.querySelector('.splash-text');
+            splashText.classList.remove('animate-fade'); // Remove the animation class to fade out
+            setTimeout(function () {
+                window.location.href = "index.html"; // Replace "main.html" with the actual URL of your main page
+            }, 1000); // Adjust the timeout (in milliseconds) as needed to match the animation duration
+        }, 2000); // Adjust the initial timeout (in milliseconds) as needed
+    </script>
+</body>
+</html>
